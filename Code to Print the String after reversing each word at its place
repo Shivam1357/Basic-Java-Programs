@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class file3 {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Input String:");
+        String txt = scan.nextLine();
+        System.out.println(ReverseEachWord(txt));
+        scan.close();
+    }
+    
+    private static String ReverseEachWord(String t){
+        String newString = "";
+        int i = 0;
+        int o = 0;
+        int u;
+        int j;
+        while (i < t.length()){
+            if (t.charAt(i) == ' ' || i + 1 == t.length()){
+                //System.out.println(o +  "," + i  +  "," + to);
+                u = i;
+                j = o;
+                while (j < u + 1){
+                    if (t.charAt(o + u - j) != ' '){
+                        newString = newString + t.charAt(o + u - j);
+                    }
+                    j = j + 1;
+                }
+                if (i + 1 != t.length()){
+                    newString = newString + " ";
+                }
+                o = i + 1;
+            }
+            i = i + 1;
+        }
+        return newString;
+    }
+}
