@@ -1,0 +1,41 @@
+public class file4 {
+    private static String vowels = "aeiouAEIOU";
+
+    public static void main(String[] args) {
+        display("java programming language");
+    }
+    
+    public static void display(String st){
+        String longString = "";
+
+        int i = 0;
+        int o = 0;
+        while (i < st.length()){
+            if (st.charAt(i) == ' '){
+                //System.out.println( "'" + st.substring(o, i) + "'");
+                if (longString.length() < i - o){
+                    longString = st.substring(o  , i );
+                }
+                o = i + 1;
+            }
+            else if (i + 1 == st.length()) {
+                if (longString.length() < i + 1 - o){
+                    longString = st.substring(o  , i  + 1);
+                }
+                //System.out.println( "'" + st.substring(o, i + 1) + "'");
+            }
+            i = i + 1;
+        }
+
+        i = 0;
+        int countVowels = 0;
+        while (i < longString.length()){
+            if (vowels.indexOf(longString.charAt(i)) != -1){
+                countVowels = countVowels + 1;
+            }
+            i = i + 1;
+        }
+        System.out.println("Longest Word:" + longString);
+        System.out.println("Number of Vowels:" + countVowels);
+    }
+}
