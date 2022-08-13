@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class file2 {
+    private static final String lowerCase = "abcdefghijklmnopqrstuvwxyz";
+
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Input String:");
+        String txt = scan.nextLine();
+        System.out.println(ConvertLowerCaseAndShiftOneLetter(txt));
+        scan.close();
+        
+    }
+    private static String ConvertLowerCaseAndShiftOneLetter(String t){
+        t = t.toLowerCase();
+
+        String newString = "";
+
+        int i = 0;
+        while (i < t.length()){
+            char m = t.charAt(i);
+            if ( lowerCase.indexOf(m) != -1) {
+                int n = lowerCase.indexOf(m);
+                if (n == 25){
+                    n = 0;
+                }
+                else{
+                    n = n + 1;
+                }
+                newString = newString + lowerCase.charAt(n);
+            }
+            else{
+                newString = newString + m;
+            }
+            i = i + 1;
+        }
+        return newString;
+    }
+}
