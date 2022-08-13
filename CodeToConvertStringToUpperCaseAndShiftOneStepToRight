@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+
+public class file1 {
+    private static final String upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Input String:");
+        String txt = scan.nextLine();
+        System.out.println(ConvertUpperCaseAndShiftOneLetter(txt));
+        scan.close();
+    }  
+    
+    
+    private static String ConvertUpperCaseAndShiftOneLetter(String t){
+        t = t.toUpperCase();
+
+        String newString = "";
+
+        int i = 0;
+        while (i < t.length()){
+            char m = t.charAt(i);
+            if ( upperCase.indexOf(m) != -1 ) {
+                int n = upperCase.indexOf(m);
+                if (n == 25){
+                    n = 0;
+                }
+                else{
+                    n = n + 1;
+                }
+                newString = newString + upperCase.charAt(n);
+            }
+            else{
+                newString = newString + m;
+            }
+            i = i + 1;
+        }
+        return newString;
+    }
+}
