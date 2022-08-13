@@ -1,0 +1,29 @@
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class file7 {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Input String:");
+        String txt = scan.nextLine();
+        System.out.println(FrequencyOfChar(txt));
+        scan.close();   
+    }
+    private static HashMap FrequencyOfChar(String st){
+        HashMap<Character,Number> count = new HashMap<Character,Number>();
+        int i = 0;
+        while (i < st.length()){
+            if (st.charAt(i) != ' '){
+                if (count.get(st.charAt(i)) == null) {
+                    count.put(st.charAt(i), 1);
+                }
+                else{
+                    int n = count.get(st.charAt(i)).intValue() + 1 ;
+                    count.put(st.charAt(i), n);
+                }
+            }
+            i = i + 1;
+        }
+        return count;
+    }
+}
